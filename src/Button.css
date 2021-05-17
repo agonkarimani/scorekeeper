@@ -1,0 +1,11 @@
+button {
+  background-color: lightgrey;
+  color: black;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+button:active {
+  background-color: black;
+  color: lightgrey;
+}
