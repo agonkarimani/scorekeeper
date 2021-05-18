@@ -4,7 +4,6 @@ import PlayerForm from "./PlayerForm";
 export default {
   title: "PlayerForm",
   component: PlayerForm,
-  argTypes: { onSubmit: { action: "onSubmit" } },
 };
 
-export const Template = (args) => <PlayerForm {...args} />;
+export const DefaultForm = (args) => <PlayerForm {...args} />;
