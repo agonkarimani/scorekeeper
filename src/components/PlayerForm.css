@@ -1,0 +1,9 @@
+.PlayerForm label {
+  display: grid;
+  gap: 4px;
+}
+
+.PlayerForm input {
+  width: 350px;
+  padding: 4px;
+}

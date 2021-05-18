@@ -1,6 +1,6 @@
-import Player from "./Player";
-import Button from "./Button";
-import PlayerForm from "./PlayerForm";
+import Player from "./components/Player";
+import Button from "./components/Button";
+import PlayerForm from "./components/PlayerForm";
 import { useState } from "react";
 
 function App() {
@@ -17,8 +17,8 @@ function App() {
         {players.map((player, index) => (
           <li>
             <Player
-              onMinus={() => handleMinus(index)}
-              onPlus={() => handlePlus(index)}
+              onMinus={() => updateScore(index, -1)}
+              onPlus={() => updateScore(index, 1)}
               key={player.name}
               name={player.name}
               score={player.score}
@@ -42,20 +42,11 @@ function App() {
     setPlayers(players.map((player) => ({ ...player, score: 0 })));
   }
 
-  function handleMinus(index) {
+  function updateScore(index, value) {
     const playerToUpdate = players[index];
     setPlayers([
       ...players.slice(0, index),
-      { ...playerToUpdate, score: playerToUpdate.score - 1 },
-      ...players.slice(index + 1),
-    ]);
-  }
-
-  function handlePlus(index) {
-    const playerToUpdate = players[index];
-    setPlayers([
-      ...players.slice(0, index),
-      { ...playerToUpdate, score: playerToUpdate.score + 1 },
+      { ...playerToUpdate, score: playerToUpdate.score + value },
       ...players.slice(index + 1),
     ]);
   }
