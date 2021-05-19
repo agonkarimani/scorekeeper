@@ -1,5 +1,6 @@
 import "./Player.css";
 import PropTypes from "prop-types";
+import styled from "styled-components/macro";
 
 Player.propTypes = {
   name: PropTypes.string.isRequired,
@@ -10,9 +11,26 @@ Player.propTypes = {
 
 export default function Player({ name, score, onMinus, onPlus }) {
   return (
-    <section className="ScoreButton">
-      {name} <button onClick={onMinus}>-</button> {score}{" "}
-      <button onClick={onPlus}>+</button>
-    </section>
+    <Wrapper>
+      {name}{" "}
+      <div>
+        <button onClick={onMinus}>-</button>
+        <output>{score}</output>
+        <button onClick={onPlus}>+</button>
+      </div>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.section`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+
+  div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+`;
