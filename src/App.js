@@ -33,7 +33,7 @@ export default function App() {
           currentPageId={currentPageId}
           onNavigate={setCurrentPageId}
           pages={[
-            { title: "Create", id: "create" },
+            { title: "Play", id: "create" },
             { title: "History", id: "history" },
           ]}
         />
